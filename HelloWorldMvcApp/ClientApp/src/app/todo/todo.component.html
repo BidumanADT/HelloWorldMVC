@@ -1,0 +1,10 @@
+<h2>To-Do List</h2>
+<input [(ngModel)]="newTodoTitle" placeholder="New to-do">
+<button (click)="addTodo()">Add</button>
+<ul>
+  <li *ngFor="let todo of todos">
+    <input type="checkbox" [checked]="todo.completed" (change)="toggleTodoCompletion(todo.id)">
+    <span [class.completed]="todo.completed">{{ todo.title }}</span>
+    <button (click)="deleteTodo(todo.id)">Delete</button>
+  </li>
+</ul>
