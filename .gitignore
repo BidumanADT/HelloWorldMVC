@@ -1,0 +1,140 @@
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/
+obj/
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+# Mono Auto Generated Files
+mono_crash.*
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+# Folder config file
+Desktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+# VS Code directories
+.vscode/
+.vscode-test/
+# ASP.NET MVC
+**/App_Data/Logs/
+**/App_Data/uploads/
+**/App_Data/temp/
+# Node modules
+node_modules/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Diagnostic reports (https://nodejs.org/en/knowledge/error-reports/)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+# Optional npm cache directory
+.npm
+# Optional eslint cache
+.eslintcache
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+# Dependency directories
+jspm_packages/
+# TypeScript v1 declaration files
+typings/
+# Optional REPL history
+.node_repl_history
+# Output of 'npm pack'
+*.tgz
+# Yarn Integrity file
+.yarn-integrity
+# dotenv environment variables file
+.env
+.env.test
+.env.production
+# Next.js build output
+.next
+# Nuxt.js build output
+.nuxt
+# Gatsby files
+.cache/
+# Vuepress build output
+.vuepress/dist
+# Serverless directories
+.serverless/
+# FuseBox cache
+.fusebox/
+# DynamoDB Local files
+.local/
+# TernJS port file
+.tern-port
+# node-waf configuration
+.lock-wscript
+# npm-config files
+*.npmrc
+# npm-shrinkwrap.json
+npm-shrinkwrap.json
+# Expo
+.expo/
+.expo-shared/
+# lock files
+package-lock.json
+yarn.lock
+# Compiled output
+dist/
+# Production
+build/
+# .nuget
+.nuget/
+# Additional folders
+packages/
+# JetBrains Rider
+.idea/
+# angular
+.angular/
+# Coverage directory used by tools like istanbul
+coverage/
+# .NET specific
+*.pdb
+*.dll
+*.exe
+*.app
+*.appx
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+# Mono auto generated files
+mono_crash.*
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+# Folder config file
+Desktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+# VS Code directories
+.vscode/
+.vscode-test/
+# Rider directories
+.idea/
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+# Local History for Visual Studio
+.vs/
+# Windows crash logs
+crash/
+# Visual Studio temporary files
+.vs/
