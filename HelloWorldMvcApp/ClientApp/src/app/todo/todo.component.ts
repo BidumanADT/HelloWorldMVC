@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForOf, NgIf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { TodoService } from '../todo.service';
 import { Todo } from '../todo.model';
 
 @Component({
   selector: 'app-todo',
-  standalone: true,
-  imports: [NgForOf, NgIf, FormsModule],
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
@@ -18,24 +14,31 @@ export class TodoComponent implements OnInit {
   constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
-    this.todos = this.todoService.getTodos();
+    this.loadTodos();
+  }
+
+  loadTodos(): void {
+    this.todoService.getTodos().subscribe(todos => this.todos = todos);
   }
 
   addTodo(): void {
     if (this.newTodoTitle.trim()) {
-      this.todoService.addTodo(this.newTodoTitle);
-      this.newTodoTitle = '';
-      this.todos = this.todoService.getTodos();
+      const newTodo: Todo = { id: 0, title: this.newTodoTitle, completed: false };
+      this.todoService.addTodo(newTodo).subscribe(todo => {
+        this.todos.push(todo);
+        this.newTodoTitle = '';
+      });
     }
   }
 
-  toggleTodoCompletion(id: number): void {
-    this.todoService.toggleTodoCompletion(id);
-    this.todos = this.todoService.getTodos();
+  toggleTodoCompletion(todo: Todo): void {
+    todo.completed = !todo.completed;
+    this.todoService.toggleTodoCompletion(todo).subscribe();
   }
 
   deleteTodo(id: number): void {
-    this.todoService.deleteTodo(id);
-    this.todos = this.todoService.getTodos();
+    this.todoService.deleteTodo(id).subscribe(() => {
+      this.todos = this.todos.filter(t => t.id !== id);
+    });
   }
 }

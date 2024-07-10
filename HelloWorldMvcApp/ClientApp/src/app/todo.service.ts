@@ -1,34 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Todo } from './todo.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Todo } from './todo/todo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  private todos: Todo[] = [];
-  private nextId = 1;
+  private apiUrl = 'https://localhost:5001/api/todoitems'; // Update with your API URL
 
-  getTodos(): Todo[] {
-    return this.todos;
+  constructor(private http: HttpClient) { }
+
+  getTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(this.apiUrl);
   }
 
-  addTodo(title: string): void {
-    const newTodo: Todo = {
-      id: this.nextId++,
-      title,
-      completed: false
-    };
-    this.todos.push(newTodo);
+  addTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(this.apiUrl, todo);
   }
 
-  toggleTodoCompletion(id: number): void {
-    const todo = this.todos.find(t => t.id === id);
-    if (todo) {
-      todo.completed = !todo.completed;
-    }
+  toggleTodoCompletion(todo: Todo): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${todo.id}`, todo);
   }
 
-  deleteTodo(id: number): void {
-    this.todos = this.todos.filter(t => t.id !== id);
+  deleteTodo(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }
